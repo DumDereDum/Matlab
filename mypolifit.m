@@ -26,7 +26,7 @@ f(n(1))=y(n(1))/x1(n(1),n(1));
 for i=n(1)-1:-1:1
     s=0;
     for j=i+1:1:n(1)
-        s=s+a(i,j)*f(j);
+        s=s+x1(i,j)*f(j);
     end
 f(i)=(y(i)-s)/x1(i,i);
 end
@@ -39,8 +39,9 @@ function [ y ] = fun_for_mypolifit( z,x )
 
 n=size(z);
 y1=0;
-for i=0:1:n(1)-1
-    y1=y1+z(i)*(power(x,i));
+for i=1:1:n(2)
+    a=power(x,i-1);
+    y1=y1+z(i)*a;
 end 
 y=y1;    
 end
